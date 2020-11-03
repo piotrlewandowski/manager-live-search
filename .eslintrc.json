@@ -13,6 +13,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "jsx-quotes": ["error", "prefer-double"],
+    "jest/no-export": 0,
     "jest-dom/prefer-checked": "error",
     "jest-dom/prefer-enabled-disabled": "error",
     "jest-dom/prefer-required": "error",
