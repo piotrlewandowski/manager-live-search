@@ -4,7 +4,7 @@
  * @param {*} initialState - The initial state to pass to the reducer
  */
 export const testReducerDefault = (reducer, initialState) => {
-  it('Should return current state', () => {
+  it('Should return current state for any other action', () => {
     const action = {
       type: 'TEST_UNKNOWN_ACTION',
       payload: 'test',
