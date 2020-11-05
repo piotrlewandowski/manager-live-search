@@ -8,8 +8,9 @@ const loggerMiddleware = createLogger({
   predicate: () => process.env.NODE_ENV === 'development',
 });
 
+export const initialState = {};
+
 export const configureStore = () => {
-  const initialState = {};
   const middlewares = [loggerMiddleware];
   const middlewareEnhancer = applyMiddleware(...middlewares);
   const enhancers = [middlewareEnhancer];

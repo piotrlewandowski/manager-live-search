@@ -1,13 +1,17 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+
 import { App } from './App';
+import { renderWithProviders } from './test/renderWithProviders';
 
 describe('<App />', () => {
-  it('renders the component', () => {
-    render(<App />);
+  it('renders the component', async () => {
+    renderWithProviders(<App />);
 
     const headerElement = screen.getByTestId('h1tag');
 
-    expect(headerElement).toHaveTextContent(/manager live search/i);
+    await waitFor(() => {
+      expect(headerElement).toHaveTextContent(/manager live search/i);
+    });
   });
 });
