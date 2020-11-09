@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { TextField } from './TextField';
+import { SuggestionsList } from './SuggestionsList';
 
 import { employees } from '../store/data/employees/employees.selectors';
 
@@ -44,18 +45,7 @@ export const SearchForm = () => {
         />
         {showSuggestions &&
           (hasSuggestions ? (
-            <ul data-testid="suggestions-list">
-              {suggestions.map((suggestion) => {
-                const { attributes } = suggestion;
-                return (
-                  <li key={suggestion.id}>
-                    <span>{attributes.initials}</span>
-                    <h3>{attributes.name}</h3>
-                    <p>{attributes.email}</p>
-                  </li>
-                );
-              })}
-            </ul>
+            <SuggestionsList data={suggestions} />
           ) : (
             <div>
               <em>No suggestions!</em>
