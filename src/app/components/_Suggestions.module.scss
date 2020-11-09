@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+$item-height: 60px;
+$item-padding: 20px;
+
+.container {
+  display: none;
+  margin: 10px 0 0;
+  //padding: 0 $container-padding;
+  padding: 0 $item-padding;
+  max-height: $item-height * 2 + $item-padding * 4;
+  overflow-y: scroll;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid $border-color;
+}
+
+.container--show {
+  display: block;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list__item {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  //height: $item-height;
+  padding: $item-padding;
+  border-bottom: 1px solid $border-color;
+}
+
+.list__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $item-height;
+  height: $item-height;
+  color: $avatar-txt-color;
+  //font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: $avatar-bg-color;
+}
+
+.list__profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: $item-padding;
+}
+
+.list__profile_heading {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.list__profile_email {
+  color: $border-color;
+}

@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isReady } from './store/init/init.selectors';
 import { appInit, getInitData } from './store/init/init.actions';
 
+import { SearchForm } from './components/SearchForm';
+
+import styles from './App.module.scss';
+
 const App = () => {
   /** CONSTANTS */
 
@@ -31,9 +35,9 @@ const App = () => {
   useEffect(() => loadInitData(), [appIsReady, loadInitData]);
 
   return (
-    <>
-      <h1 data-testid="h1tag">Manager Live Search</h1>
-    </>
+    <div className={styles.wrapper} data-testid="app-wrapper">
+      <SearchForm />
+    </div>
   );
 };
 

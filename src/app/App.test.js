@@ -5,13 +5,13 @@ import { App } from './App';
 import { renderWithProviders } from './test/renderWithProviders';
 
 describe('<App />', () => {
-  it('renders the component', async () => {
+  it('Renders <App /> component correctly', async () => {
     renderWithProviders(<App />);
 
-    const headerElement = screen.getByTestId('h1tag');
+    const wrapperElement = screen.getByTestId('app-wrapper');
 
     await waitFor(() => {
-      expect(headerElement).toHaveTextContent(/manager live search/i);
+      expect(wrapperElement).toBeInTheDocument();
     });
   });
 });

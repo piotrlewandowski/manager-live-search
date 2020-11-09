@@ -9,4 +9,7 @@ module.exports = {
   testMatch: ['**/*.test.js'],
   testURL: 'http://localhost',
   setupFilesAfterEnv: [path.resolve(__dirname, './src/setupTests.js')],
+  moduleNameMapper: {
+    '\\.(sa|sc|c)ss$': 'identity-obj-proxy',
+  },
 };
