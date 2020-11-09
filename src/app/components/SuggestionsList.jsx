@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './SuggestionsList.module.scss';
 
-export const SuggestionsList = ({ data, handleClick, activeOption }) => {
+export const SuggestionsList = ({ data, handleClick, activeOption, refs }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.suggestionsList} data-testid="suggestions-list">
@@ -18,6 +18,7 @@ export const SuggestionsList = ({ data, handleClick, activeOption }) => {
             <li
               className={classes}
               key={suggestion.id}
+              ref={refs[suggestion.id]}
               onClick={() => handleClick(attributes.name)}
             >
               <div className={styles.suggestionsList__initials}>

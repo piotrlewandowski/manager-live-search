@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import { TextField } from './TextField';
@@ -20,6 +20,10 @@ export const SearchForm = () => {
 
   /** CONSTANTS */
   const hasSuggestions = suggestions.length > 0;
+  const refs = suggestions.reduce((acc, cur) => {
+    acc[cur.id] = createRef();
+    return acc;
+  }, {});
 
   /** HANDLERS */
 
@@ -40,17 +44,31 @@ export const SearchForm = () => {
         if (event.keyCode === keyCodes.ENTER) {
           setValue(suggestions[activeOption].attributes.name);
         }
+
         setShowSuggestions(false);
         setActiveOption(0);
         event.currentTarget.blur();
+
         break;
       case keyCodes.ARROW_DOWN:
         if (activeOption === suggestions.length - 1) return;
+
         setActiveOption((state) => state + 1);
+        refs[suggestions[activeOption].id].current.scrollIntoView({
+          // behavior: 'smooth',
+          block: 'start',
+        });
+
         break;
       case keyCodes.ARROW_UP:
         if (activeOption === 0) return;
+
         setActiveOption((state) => state - 1);
+        refs[suggestions[activeOption].id].current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+
         break;
       default:
         break;
@@ -69,6 +87,7 @@ export const SearchForm = () => {
       className={styles.form}
       autoComplete="off"
       data-testid="search-form"
+      onSubmit={(event) => event.preventDefault()}
     >
       <section className={styles.section}>
         <TextField
@@ -84,6 +103,7 @@ export const SearchForm = () => {
               data={suggestions}
               handleClick={handleClick}
               activeOption={activeOption}
+              refs={refs}
             />
           ) : (
             <div className={styles.warning}>
