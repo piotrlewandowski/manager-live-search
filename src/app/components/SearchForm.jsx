@@ -66,7 +66,7 @@ export const SearchForm = () => {
         setActiveOption((state) => state - 1);
         refs[suggestions[activeOption].id].current.scrollIntoView({
           behavior: 'smooth',
-          block: 'start',
+          block: 'end',
         });
 
         break;
