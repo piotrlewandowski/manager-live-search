@@ -23,7 +23,12 @@
 
   &:hover {
     cursor: pointer;
+    background-color: lighten($border-color, 20);
   }
+}
+
+.suggestionsList__item__active {
+  background-color: lighten($border-color, 20);
 }
 
 .suggestionsList__initials {

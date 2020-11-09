@@ -8,6 +8,7 @@ export const TextField = ({
   value,
   onChange,
   onFocus,
+  onKeyDown,
   testId,
 }) => {
   return (
@@ -24,6 +25,7 @@ export const TextField = ({
         placeholder={placeholder}
         onChange={onChange}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         value={value}
         data-testid={testId}
       />
@@ -33,7 +35,9 @@ export const TextField = ({
 
 TextField.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  testId: PropTypes.string,
 };

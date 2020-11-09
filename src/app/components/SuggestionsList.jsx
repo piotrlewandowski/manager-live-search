@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import styles from './SuggestionsList.module.scss';
 
-export const SuggestionsList = ({ data, handleClick }) => {
+export const SuggestionsList = ({ data, handleClick, activeOption }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.suggestionsList} data-testid="suggestions-list">
-        {data.map((suggestion) => {
+        {data.map((suggestion, index) => {
           const { attributes } = suggestion;
+          const classes = classNames(styles.suggestionsList__item, {
+            [styles.suggestionsList__item__active]: index === activeOption,
+          });
 
           return (
             <li
-              className={styles.suggestionsList__item}
+              className={classes}
               key={suggestion.id}
               onClick={() => handleClick(attributes.name)}
             >
@@ -47,4 +51,5 @@ SuggestionsList.propTypes = {
     }),
   ),
   handleClick: PropTypes.func,
+  activeOption: PropTypes.number,
 };

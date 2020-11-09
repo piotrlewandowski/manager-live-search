@@ -7,3 +7,17 @@
 .section {
   padding: 10px 20px;
 }
+
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $item-height;
+  margin-top: $item-padding;
+  padding: $item-padding;
+  font-size: 1.4rem;
+  color: $warning-text-color;
+  border-radius: 8px;
+  border: 2px solid $warning-border-color;
+  background-color: $warning-bg-color;
+}
