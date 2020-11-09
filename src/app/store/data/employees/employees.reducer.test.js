@@ -6,9 +6,17 @@ import { initialState } from './employees.reducer';
 import mockData from '../../../config/mockData.json';
 
 const mockState = {
-  employees: mockData.data,
+  employees: [
+    {
+      id: '323',
+      attributes: {
+        name: 'Harriet McKinney',
+        email: 'harriet.mckinney@kinetar.com',
+        initials: 'HM',
+      },
+    },
+  ],
 };
-const mockStateCopy = { ...mockState.employees[0] };
 
 describe('Employees reducer', () => {
   it(`Should add employees data for ${GET_INIT_DATA + SUCCESS} action`, () => {
@@ -17,14 +25,15 @@ describe('Employees reducer', () => {
       payload: {
         response: {
           data: {
-            data: [mockState.employees[0]],
+            data: [mockData.data[0]],
+            included: mockData.included,
           },
         },
       },
     };
 
-    expect(employeesReducer(mockState, action)).toEqual({
-      employees: [mockStateCopy],
+    expect(employeesReducer(mockData, action)).toEqual({
+      employees: mockState.employees,
     });
   });
 
