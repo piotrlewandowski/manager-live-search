@@ -14,6 +14,9 @@ export const SearchForm = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestions = useSelector((state) => employees(state, value));
 
+  /** CONSTANTS */
+  const hasSuggestions = suggestions.length > 0;
+
   /** HANDLERS */
 
   const handleFocus = () => {
@@ -39,20 +42,25 @@ export const SearchForm = () => {
           onFocus={handleFocus}
           testId="search-form-input"
         />
-        {showSuggestions && (
-          <ul data-testid="suggestions-list">
-            {suggestions.map((suggestion) => {
-              const { attributes } = suggestion;
-              return (
-                <li key={suggestion.id}>
-                  <span>{attributes.initials}</span>
-                  <h3>{attributes.name}</h3>
-                  <p>{attributes.email}</p>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        {showSuggestions &&
+          (hasSuggestions ? (
+            <ul data-testid="suggestions-list">
+              {suggestions.map((suggestion) => {
+                const { attributes } = suggestion;
+                return (
+                  <li key={suggestion.id}>
+                    <span>{attributes.initials}</span>
+                    <h3>{attributes.name}</h3>
+                    <p>{attributes.email}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div>
+              <em>No suggestions!</em>
+            </div>
+          ))}
       </section>
     </form>
   );
