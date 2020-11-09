@@ -24,7 +24,7 @@ It contains:
 
 ## Getting Started
 
-1. Clone the repository `git clone git@github.com:piotrlewandowski/webpack-4-react-starter.git`
+1. Clone the repository `git clone git@github.com:piotrlewandowski/manager-live-search.git` (or `gh repo clone piotrlewandowski/manager-live-search` if you're using [GitHub CLI](https://cli.github.com/))
 2. If you're using NVM run `nvm use` inside project directory to use node version set in `.nvmrc` file
 3. Run `npm install` or `npm i` to install all the dependencies
 4. To begin development task, run `npm start`
@@ -37,7 +37,7 @@ It contains:
 - `npm test:watch` - launches the test runner in the interactive watch mode
 - `npm start` - start the dev server and watch for changes
 - `npm run build` - create a production ready build in `dist` folder
-- `npm run eslint:check` - execute eslint check
-- `npm run eslint:fix` - execute eslint check and automatically fix problems
-- `npm run stylelint:check` - execute stylelint check
-- `npm run stylelint:fix` - execute stylelint check and automatically fix problems
+- `npm run lint:js` - execute eslint check
+- `npm run lint:js:fix` - execute eslint check and automatically fix problems
+- `npm run lint:scss` - execute stylelint check
+- `npm run lint:scss` - execute stylelint check and automatically fix problems
