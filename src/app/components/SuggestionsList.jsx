@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './SuggestionsList.module.scss';
 
-export const SuggestionsList = ({ data }) => {
+export const SuggestionsList = ({ data, handleClick }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.suggestionsList} data-testid="suggestions-list">
@@ -11,7 +11,11 @@ export const SuggestionsList = ({ data }) => {
           const { attributes } = suggestion;
 
           return (
-            <li className={styles.suggestionsList__item} key={suggestion.id}>
+            <li
+              className={styles.suggestionsList__item}
+              key={suggestion.id}
+              onClick={() => handleClick(attributes.name)}
+            >
               <div className={styles.suggestionsList__initials}>
                 {attributes.initials}
               </div>
@@ -42,4 +46,5 @@ SuggestionsList.propTypes = {
       }),
     }),
   ),
+  handleClick: PropTypes.func,
 };

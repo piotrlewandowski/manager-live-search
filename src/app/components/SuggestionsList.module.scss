@@ -20,6 +20,10 @@
   flex-direction: row;
   padding: $item-padding;
   border-bottom: 1px solid $border-color;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .suggestionsList__initials {

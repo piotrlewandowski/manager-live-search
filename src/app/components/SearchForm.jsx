@@ -29,6 +29,10 @@ export const SearchForm = () => {
     setShowSuggestions(true);
   };
 
+  const handleClick = (name) => {
+    setValue(name);
+  };
+
   return (
     <form
       action=""
@@ -45,7 +49,7 @@ export const SearchForm = () => {
         />
         {showSuggestions &&
           (hasSuggestions ? (
-            <SuggestionsList data={suggestions} />
+            <SuggestionsList data={suggestions} handleClick={handleClick} />
           ) : (
             <div>
               <em>No suggestions!</em>
